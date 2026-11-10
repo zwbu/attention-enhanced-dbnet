@@ -1,0 +1,49 @@
+{
+  "benchmark": "icdar2015",
+  "image_size": [
+    640,
+    640
+  ],
+  "model": {
+    "stem_channels": 32,
+    "pyramid_channels": [
+      48,
+      64,
+      96,
+      128
+    ],
+    "neck_channels": 32,
+    "channel_dilation": 2,
+    "spatial_dilation": 2,
+    "reduction": 4,
+    "db_k": 50.0
+  },
+  "training": {
+    "epochs": 100,
+    "batch_size": 4,
+    "workers": 0,
+    "seed": 2026,
+    "lr": 0.001,
+    "weight_decay": 0.0001
+  },
+  "targets": {
+    "shrink_ratio": 0.4,
+    "min_text_size": 8,
+    "threshold_min": 0.3,
+    "threshold_max": 0.7
+  },
+  "loss": {
+    "negative_ratio": 3,
+    "threshold_weight": 10.0,
+    "binary_weight": 1.0
+  },
+  "postprocess": {
+    "map_source": "binary",
+    "pixel_threshold": 0.5,
+    "score_threshold": 0.5,
+    "unclip_ratio": 1.5,
+    "min_side": 3.0,
+    "max_candidates": 1000,
+    "geometry": "quad"
+  }
+}
